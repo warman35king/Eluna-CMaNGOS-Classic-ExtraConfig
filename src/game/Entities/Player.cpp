@@ -3762,6 +3762,8 @@ void Player::_SaveSpellCooldowns()
 
 uint32 Player::resetTalentsCost() const
 {
+    if (sWorld.getConfig(CONFIG_BOOL_NO_TALENT_RESET_COST))
+        return 0;
     // The first time reset costs 1 gold
     if (m_resetTalentsCost < 1 * GOLD)
         return 1 * GOLD;

@@ -826,6 +826,7 @@ StartHonorPoints = 0
 MinHonorKills = 15
 MaintenanceDay = 3
 InstantLogout = 1
+NoTalentResetCost = 0
 DisableWaterBreath = 4
 AlwaysShowQuestGreeting = 0
 TaxiFlightChatFix = 0
