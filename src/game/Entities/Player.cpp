@@ -3845,7 +3845,10 @@ bool Player::resetTalents(bool no_cost)
     {
         ModifyMoney(-(int32)cost);
 
-        m_resetTalentsCost = cost;
+        if (cost > 0) 
+        {
+            m_resetTalentsCost = cost;
+        }
         m_resetTalentsTime = time(nullptr);
     }
 
