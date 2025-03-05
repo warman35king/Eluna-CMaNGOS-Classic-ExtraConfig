@@ -1,5 +1,5 @@
 # C(ontinued)-MaNGOS -- README
-[![Windows](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classicactions/workflows/windows.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml)
+[![Windows](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml)
 [![Ubuntu](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/ubuntu.yml)
 [![MacOS](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/macos.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/macos.yml)
 
