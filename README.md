@@ -1,7 +1,7 @@
 # C(ontinued)-MaNGOS -- README
-[![Windows](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml)
+<!-- [![Windows](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/windows.yml)
 [![Ubuntu](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/ubuntu.yml)
-[![MacOS](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/macos.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/macos.yml)
+[![MacOS](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/macos.yml/badge.svg)](https://github.com/Eluna-Ports/Eluna-CMaNGOS-Classic/actions/workflows/macos.yml) -->
 
 This file is part of the CMaNGOS Project. See [AUTHORS](AUTHORS.md) and [COPYRIGHT](COPYRIGHT.md) files for Copyright information
 
