@@ -155,6 +155,7 @@ struct WondervoltTrap : public SpellScript
 *  Quests 9121, 9122, 9123, 9378 - Naxxramas, The Dread Citadel
 **************************************************************/
 
+// 28006 - Arcane Cloaking
 struct ArcaneCloaking : public SpellScript
 {
     void OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const override
@@ -162,9 +163,10 @@ struct ArcaneCloaking : public SpellScript
         if (effIdx == EFFECT_INDEX_0)
         {
             Unit* caster = spell->GetCaster();
+            Unit* target = spell->GetUnitTarget();
             // Naxxramas Entry Flag Effect DND
-            if (caster && caster->GetTypeId() == TYPEID_PLAYER)
-                caster->CastSpell(caster, 29296, TRIGGERED_OLD_TRIGGERED);  // Cast Naxxramas Entry Flag Trigger DND
+            if (target && target->IsPlayer())
+                caster->CastSpell(target, 29296, TRIGGERED_OLD_TRIGGERED);  // Cast Naxxramas Entry Flag Trigger DND
         }
     }
 };
@@ -296,6 +298,18 @@ struct RetaliationCreature : public SpellScript
     }
 };
 
+// 11920 - Net Guard
+struct NetGuard : public SpellScript
+{
+    void OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const override
+    {
+        if (effIdx != EFFECT_INDEX_0)
+            return;
+
+        spell->GetCaster()->getThreatManager().modifyThreatPercent(spell->GetUnitTarget(), -50);
+    }
+};
+
 struct HateToHalf : public SpellScript
 {
     void OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const override
@@ -410,6 +424,7 @@ void AddSC_spell_scripts()
     RegisterSpellScript<TribalDeath>("spell_tribal_death");
     RegisterSpellScript<InstillLordValthalaksSpirit>("spell_instill_lord_valthalaks_spirit");
     RegisterSpellScript<RetaliationCreature>("spell_retaliation_creature");
+    RegisterSpellScript<NetGuard>("spell_net_guard");
     RegisterSpellScript<HateToHalf>("spell_hate_to_half");
     RegisterSpellScript<HateToZero>("spell_hate_to_zero");
     RegisterSpellScript<Stoned>("spell_stoned");

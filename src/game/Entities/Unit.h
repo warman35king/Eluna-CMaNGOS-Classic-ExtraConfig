@@ -1211,7 +1211,8 @@ class Unit : public WorldObject
          */
         bool CanReachWithMeleeAttack(Unit const* pVictim, float flat_mod = 0.0f) const;
         uint32 m_extraAttacks;
-        void DoExtraAttacks(Unit* pVictim);
+        ObjectGuid m_extraAttackGuid;
+        void DoExtraAttacks(Unit* victim);
 
         bool IsAttackedBy(Unit* attacker) const
         {
@@ -2666,6 +2667,8 @@ class Unit : public WorldObject
 
         bool m_aoeImmune;
         bool m_chainImmune;
+
+        TimePoint m_lastMoveTime; // used for resetting combat timer on melee
 
     private:                                                // Error traps for some wrong args using
         // this will catch and prevent build for any cases when all optional args skipped and instead triggered used non boolean type

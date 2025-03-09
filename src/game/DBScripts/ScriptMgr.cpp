@@ -1832,7 +1832,7 @@ bool ScriptAction::ExecuteDbscriptCommand(WorldObject* pSource, WorldObject* pTa
                 if (m_script->textId[0] == 1 || m_script->textId[0] == 2 && !creature->GetCreatureGroup())
                 {
                     Position const& respPos = creature->GetRespawnPosition();
-                    creature->GetMotionMaster()->MovePoint(0, respPos, ForcedMovement(m_script->moveTo.forcedMovement), 0.f, true);
+                    creature->GetMotionMaster()->MovePoint(0, respPos, ForcedMovement(m_script->moveTo.forcedMovement), 0.f, true, creature->GetObjectGuid(), m_script->moveTo.relayId);
                 }
                 else if (m_script->textId[0] == 2)
                 {
@@ -2774,7 +2774,14 @@ bool ScriptAction::ExecuteDbscriptCommand(WorldObject* pSource, WorldObject* pTa
                     sLog.outErrorDb(" DB-SCRIPTS: Process table `%s` id %u, _MOVE_DYNAMIC called with maxDist == 0, but resultingSource == resultingTarget (== %s)", m_table, m_script->id, source->GetGuidStr().c_str());
                     break;
                 }
-                pTarget->GetContactPoint(source, x, y, z, m_script->moveDynamic.fixedDist);
+                if (m_script->data_flags & SCRIPT_FLAG_COMMAND_ADDITIONAL) // no bounding radius
+                {
+                    pTarget->GetNearPoint2dAt(pTarget->GetPositionX(), pTarget->GetPositionY(), x, y, m_script->moveDynamic.fixedDist, pTarget->GetAngle(source));
+                    if (source)
+                        source->UpdateAllowedPositionZ(x, y, z, pTarget->GetMap()); // update to LOS height if available
+                }
+                else
+                    pTarget->GetContactPoint(source, x, y, z, m_script->moveDynamic.fixedDist);
             }
             else                                            // Calculate position
             {
